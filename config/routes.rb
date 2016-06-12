@@ -6,10 +6,15 @@ Rails.application.routes.draw do
       put :like, to: "stories#upvote"
       put :dislike, to: "stories#downvote"
     end
+
+    collection do
+      get :serch
+    end
   end
 
   root "stories#index"
 
   get "/topstories", to: "pages#topstories", as: "topstories"
   get "/randomstories", to: "pages#randomstories", as: "randomstories"
+  get "/category/:id", to: "categories#show", as: "category"
 end
