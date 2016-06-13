@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
 
     collection do
-      get :serch
+      get :search
     end
   end
 

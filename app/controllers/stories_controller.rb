@@ -35,6 +35,17 @@ class StoriesController < ApplicationController
     redirect_to :back
   end
 
+  def search
+    # urlの:searchが空だったら
+    if params[:search].blank?
+      # story全話
+      @stories = Story.all
+    else
+      # storyでurlに:searchをもつもの
+      @stories = Story.search(params)
+    end
+  end
+
   private
     def story_params
       params.require(:story).permit(:body)
